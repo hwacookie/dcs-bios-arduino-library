@@ -31,6 +31,8 @@ namespace DcsBios {
 	const unsigned char PIN_NC = 0xFF;
 }
 
+#include "DcsBiosExt/DcsBios_UDPConnect.h"
+
 /*
 The following is an ugly hack to work with the Arduino IDE's build system.
 The DCS-BIOS Arduino Library is configured with #defines such as DCSBIOS_RS485_MASTER or DCSBIOS_RS485_SLAVE <address>.
@@ -126,7 +128,7 @@ do not come with their own build system, we are just putting everything into the
 #include "internal/RotarySyncingPotentiometer.h"
 #include "internal/Leds.h"
 #ifndef DCSBIOS_DISABLE_SERVO
-#include "internal/Servos.h"
+//#include "internal/Servos.h"
 #endif
 #include "internal/Dimmer.h"
 #include "internal/BcdWheels.h"
@@ -153,7 +155,7 @@ namespace DcsBios {
 	}
 }
 
-#ifndef DCSBIOS_RS485_MASTER
+/* #ifndef DCSBIOS_RS485_MASTER
 namespace DcsBios {	
 	inline bool sendDcsBiosMessage(const char* msg, const char* arg) {
 		while(!tryToSendDcsBiosMessage(msg, arg));
@@ -161,11 +163,11 @@ namespace DcsBios {
 	}
 }
 
-// for backwards compatibility, can be removed when we have a proper place to document this interface:
+ // for backwards compatibility, can be removed when we have a proper place to document this interface:
 inline bool sendDcsBiosMessage(const char* msg, const char* arg) {
 	while(!DcsBios::tryToSendDcsBiosMessage(msg, arg));
 	return true;
-}
-#endif
+} 
+#endif */
 
 #endif // include guard

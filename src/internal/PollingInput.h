@@ -12,12 +12,12 @@ namespace DcsBios {
 	class PollingInput {
 		private:
 			virtual void resetState() = 0;
-			virtual void pollInput() = 0;
 			#define POLL_EVERY_TIME 0
 			unsigned long pollingIntervalMs;
 			unsigned long lastPollTime;
 			PollingInput* nextPollingInput;
 		public:
+			virtual void pollInput() = 0;
 			static PollingInput* firstPollingInput;
 			static void setMessageSentOrQueued() { messageSentOrQueued = true; }
 			PollingInput(unsigned long pollIntervalMs) {

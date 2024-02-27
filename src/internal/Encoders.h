@@ -86,7 +86,7 @@ namespace DcsBios {
 	};
 	typedef RotaryEncoderT<> RotaryEncoder;
 
-	template <unsigned long pollIntervalMs = POLL_EVERY_TIME, StepsPerDetent stepsPerDetent = ONE_STEP_PER_DETENT>
+	template <unsigned long pollIntervalMs = POLL_EVERY_TIME, StepsPerDetent stepsPerDetent = FOUR_STEPS_PER_DETENT>
 	class RotaryAcceleratedEncoderT : PollingInput, public ResettableInput {
     private:
 		const char* msg_;
